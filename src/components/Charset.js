@@ -1,37 +1,7 @@
 import React from "react";
 
 
-export default function Charset () {
-  
-  
-  const [checkbox,setCheckbox] = React.useState({
-    uppercase: true,
-    lovercase: true,
-    numbers: true,
-    symbols: true
-  })
-
-  console.log(checkbox)
-
-
-
-
-
-  function toggleCheckbox(event) {
-    console.log(event)
-    const {name, value, type, checked} = event.target
-    setCheckbox(prev => {
-        return {
-            ...prev,
-            [name]: type === "checkbox" ? checked : value
-        }
-    })
-}
-
-
-
-  
-
+export default function Charset (props) {
 
   return (
     <div className="charset">
@@ -40,28 +10,28 @@ export default function Charset () {
           <input className="charset--uppercase" 
                  type="checkbox" 
                  name="uppercase" 
-                 onChange={toggleCheckbox} 
-                 value={checkbox.uppercase}
+                 onChange={props.toggleCheckbox} 
+                 value={props.uppercase}
           />
           <label className="charset--label">ABC</label>
           <input className="charset--lovercase" 
                  name="lovercase" 
                  type="checkbox" 
-                 onChange={toggleCheckbox} 
-                 value={checkbox.uppercase}/>
+                 onChange={props.toggleCheckbox} 
+                 value={props.uppercase}/>
           <label className="charset--label">abc</label>
           <input className="charset--numbers" 
                  type="checkbox" 
                  name="numbers" 
-                 onChange={toggleCheckbox} 
-                 value={checkbox.numbers}
+                 onChange={props.toggleCheckbox} 
+                 value={props.numbers}
           />
           <label className="charset--label">123</label>
           <input className="charset--symbols" 
                  type="checkbox" 
                  name="symbols" 
-                 onChange={toggleCheckbox} 
-                 value={checkbox.symbols}/>
+                 onChange={props.toggleCheckbox} 
+                 value={props.symbols}/>
           <label className="charset--label">@#$</label>
         </div>
     </div>
