@@ -8,19 +8,16 @@ import Charset from './components/Charset';
 
 function App() {
   
-  const [length, setLength] = React.useState(12);
+  const [length, setLength] = React.useState(16);
   
   const [checkbox, setCheckbox] = React.useState({
-    lovercase: '',
-    uppercase: '',
-    numbers: '',
-    symbols: ''
+    lovercase: true,
+    uppercase: true,
+    numbers: true,
+    symbols: true
   })
-  
-  console.log(checkbox)
 
-
-  function toggleCheckbox(event) {
+function toggleCheckbox(event) {
     const {name, value, type, checked} = event.target
     setCheckbox(prev => {
         return {
@@ -31,12 +28,12 @@ function App() {
 }
 
 function handleChange (event) {
-    setLength( prev => event.target.value)
+    setLength(event.target.value)
 }
 
-  function generate(length) {
+function generate(length, lovercase, uppercase, numbers, symbols) {
       let generatedPassword = []
-      let set;
+      let set = ''
 
       const lowercaseSet = 'abcdefghijklmnopqrstuvwxyz'
       const uppercaseSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -45,17 +42,17 @@ function handleChange (event) {
       
       // ? checking the checkboxes
 
-      if (checkbox.lovercase) {
+      if (lovercase) {
         set += lowercaseSet
       }
 
-      if (checkbox.uppercase) {
+      if (uppercase) {
         set += uppercaseSet
       }
-      if (checkbox.numbers) {
+      if (numbers) {
         set += numbersSet
       }
-      if (checkbox.symbols) {
+      if (symbols) {
         set += symbolsSet
       }
 
@@ -73,23 +70,27 @@ function handleChange (event) {
 
 
       return generatedPassword.join('').slice(0, length)
-    }
+}
   
   
   return (
-    <div className="App">
-      <h2 className='title'>Generate secure password</h2>
-      <Output generate={() => generate()}
-              length={length}
-      />
-      <Complexity /> 
-      <Input handleChange={handleChange} 
-             length={length}
-      />   
-      <Charset toggleCheckbox={toggleCheckbox}
-               {...checkbox}
-      />
-    </div>
+  <div className="App">
+      <div className='app-wrapper'>
+        <h2 className='title'>Generate secure password</h2>
+        <Output generate={generate}
+                length={length}
+                {...checkbox}
+        />
+        <Complexity /> 
+        <Input handleChange={handleChange} 
+               length={length}
+        />   
+        <Charset toggleCheckbox={toggleCheckbox}
+                {...checkbox}
+                length={length}
+        />
+       </div> 
+  </div>
   );
 }
 

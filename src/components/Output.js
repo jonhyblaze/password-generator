@@ -4,12 +4,12 @@ export default function Output(props) {
   const [password, setPassword] = React.useState('')
   
 function handlePassword () {
-  setPassword( () => props.generate(props.length))
+  setPassword( () => (props.generate(props.length, props.lovercase, props.uppercase, props.numbers, props.symbols)))
 }
 
   return (
     <div className="output">
-        <div className="output--feild">
+        <div className="output--field">
           {password}
           <div className="output--password"></div>
           <img className="output--copy"

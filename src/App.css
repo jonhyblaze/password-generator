@@ -1,0 +1,34 @@
+body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+.app-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.output {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.output--field {
+  background: #FFFFFF;
+  border: 1px solid #282828;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+
+
