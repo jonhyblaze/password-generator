@@ -10,14 +10,11 @@ function handlePassword () {
   return (
     <div className="output">
         <div className="output--field">
-          {password}
+          <h3>{password}</h3>
           <div className="output--password"></div>
-          <img className="output--copy"
-               alt=""
-               src="../assets/copy.png"
-                />
+          <div className="output--copy"></div>
         </div>
-        <div className="output--button" onClick={handlePassword}>Generate</div>
+        <div className="output--button" onClick={handlePassword}><h4>Generate</h4></div>
     </div>
   )
 }

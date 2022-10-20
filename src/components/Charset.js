@@ -5,7 +5,7 @@ export default function Charset (props) {
 
   return (
     <div className="charset">
-       <h4 className="charset--title">Characters used:</h4>
+       <p className="charset--title">Characters used:</p>
        <div className="charset--checkbox-container">
               <input className="charset--uppercase" 
                      type="checkbox" 

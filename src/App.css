@@ -1,18 +1,70 @@
-body, * {
+/* Global Styles */
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Typography */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #F6F6F6;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.75rem;
+  text-align: center;
+  color: #282828;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #282828;
+}
+
+label {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #282828;
+}
+
+/* Components */
+
 .App {
   display: flex;
   flex-direction: column;
+  width: 80%;
   margin: 0 auto;
   gap: 4rem;
 }
 
 .app-wrapper {
   margin: 0 auto;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -21,14 +73,80 @@ body, * {
 .output {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  height: 3.5rem;
 }
 
 .output--field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 0 .75rem 1.5rem;
   background: #FFFFFF;
   border: 1px solid #282828;
   box-shadow: 6px 6px 0px #000000;
+  width: 66%;
+  height: 100%; 
 }
+
+.output--copy {
+  background-image: url(/src/assets/copy.png);
+  background-size: contain;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #282828;
+  margin-right: 1.5rem;
+}
+
+.output--button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 8px;
+  width: 26%;
+  height: 100%;
+  background: #383838;
+  border: 1px solid #383838;
+}
+
+.complexity {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem
+}
+
+.input {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  gap: 1.25rem;
+}
+
+.input--number {
+  width: 5%;
+  height: 100%;
+  padding-left: .25rem;
+}
+
+.input--slider {
+  width: 60%
+}
+
+.charset {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.charset--checkbox-container {
+  display: flex;
+  gap: .25rem;
+}
+
 
 
 
