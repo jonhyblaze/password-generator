@@ -72,7 +72,6 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
       return generatedPassword.join('').slice(0, length)
 }
   
-  
   return (
   <div className="App">
       <div className='app-wrapper'>

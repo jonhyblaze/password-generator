@@ -3,9 +3,14 @@ import React from "react";
 export default function Output(props) {
   const [password, setPassword] = React.useState('')
   
-function handlePassword () {
-  setPassword( () => (props.generate(props.length, props.lovercase, props.uppercase, props.numbers, props.symbols)))
-}
+  
+  function handlePassword () {
+    setPassword( () => (props.generate(props.length, props.lovercase, props.uppercase, props.numbers, props.symbols)))
+  }
+
+ React.useEffect(() => {
+    handlePassword()
+    }, [props.length])
 
 async function copyTextToClipboard(text) {
   if ('clipboard' in navigator) {
