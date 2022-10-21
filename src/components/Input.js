@@ -10,7 +10,7 @@ export default function Input (props) {
         <input type="number" 
                className="input--number"
                min={0}
-               max={24} 
+               max={24}
                name="number"
                onChange={props.handleChange}
                value={props.length}

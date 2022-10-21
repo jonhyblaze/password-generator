@@ -7,28 +7,28 @@ export default function Charset (props) {
     <div className="charset">
        <p className="charset--title">Characters used:</p>
        <div className="charset--checkbox-container">
-              <input className="charset--uppercase" 
+              <input className="charset--uppercase checkbox" 
                      type="checkbox" 
                      name="uppercase" 
                      onChange={props.toggleCheckbox} 
                      checked={props.uppercase}
               />
               <label className="charset--label">ABC</label>
-              <input className="charset--lovercase" 
+              <input className="charset--lovercase checkbox" 
                      name="lovercase" 
                      type="checkbox" 
                      onChange={props.toggleCheckbox} 
                      checked={props.lovercase}   
               />
               <label className="charset--label">abc</label>
-              <input className="charset--numbers" 
+              <input className="charset--numbers checkbox" 
                      type="checkbox" 
                      name="numbers" 
                      onChange={props.toggleCheckbox} 
                      checked={props.numbers}  
               />
               <label className="charset--label">123</label>
-              <input className="charset--symbols" 
+              <input className="charset--symbols checkbox" 
                      type="checkbox" 
                      name="symbols" 
                      onChange={props.toggleCheckbox} 
