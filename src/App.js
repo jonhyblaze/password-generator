@@ -8,8 +8,9 @@ import Charset from './components/Charset';
 
 function App() {
   
-  const [length, setLength] = React.useState(16);
-  
+  const [length, setLength] = React.useState(0);
+ 
+
   const [checkbox, setCheckbox] = React.useState({
     lovercase: true,
     uppercase: true,
@@ -45,7 +46,6 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
       if (lovercase) {
         set += lowercaseSet
       }
-
       if (uppercase) {
         set += uppercaseSet
       }
@@ -55,7 +55,6 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
       if (symbols) {
         set += symbolsSet
       }
-
       else {
         set += ''
       }
@@ -71,24 +70,56 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
 
       return generatedPassword.join('').slice(0, length)
 }
-  
-  return (
-  <div className="App">
-      <div className='app-wrapper'>
+
+function backgroundColorFeedback() {
+  if (length > 0 && length < 6) {
+    return {background: '#FF6E5A'}
+  } 
+  if (length >= 6 && length < 9) {
+    return {background: '#FFB054'}
+  }
+  if (length >= 9 && length < 13) {
+    return {background: '#FFDA55'}
+  }
+  if (length >= 13 && length < 16) {
+    return {background: '#BFF351'}
+  }
+  if (length >= 16 && length < 18) {
+    return {background: '#79F665'}
+  }
+  if (length >= 18 && length < 20) {
+    return {background: '#5EE0FD'}
+  }
+  if (length >= 20 && length < 22) {
+    return {background: '#77A5FF'}
+  }
+
+  if (length >= 22 && length < 25) {
+    return {background: '#9C8CFF'}
+  }
+}
+
+
+return (
+  <div className='App' 
+       style={backgroundColorFeedback()}>
+    <div className="app-wrapper">
         <h2 className='title'>Generate secure password</h2>
         <Output generate={generate}
-                length={length}
+                length={+length}
                 {...checkbox}
         />
-        <Complexity /> 
+        <Complexity 
+               length={+length}
+               {...checkbox}/> 
         <Input handleChange={handleChange} 
-               length={length}
+               length={+length}
         />   
         <Charset toggleCheckbox={toggleCheckbox}
                 {...checkbox}
-                length={length}
+                length={+length}
         />
-       </div> 
+    </div> 
   </div>
   );
 }

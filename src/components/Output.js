@@ -2,10 +2,16 @@ import React from "react";
 
 export default function Output(props) {
   const [password, setPassword] = React.useState('')
-  
-  
+
   function handlePassword () {
-    setPassword( () => (props.generate(props.length, props.lovercase, props.uppercase, props.numbers, props.symbols)))
+    if(props.uppercase || props.lovercase || props.numbers || props.symbols) {
+      setPassword( () => (props.generate(props.length, props.lovercase, props.uppercase, props.numbers, props.symbols)))
+    } 
+    
+    else if (!props.uppercase || !props.lovercase || !props.numbers || !props.symbols) {
+      setPassword('Select character set')
+      setTimeout( ()=> setPassword(''), 2400)
+    }
   }
 
  React.useEffect(() => {
@@ -26,7 +32,7 @@ function handleCopyClick() {
     setPassword( (prev) => {
       setTimeout( ()=> {
         setPassword(prev)
-      }, 800)
+      }, 1000)
      return 'Password is copied!'
       })
   }
@@ -39,7 +45,6 @@ function handleCopyClick() {
           <div className="output--password"></div>
           <div className="output--copy"
                onClick={handleCopyClick }>
-
           </div>
         </div>
         <div className="output--button" onClick={handlePassword}><h4>Generate</h4></div>
