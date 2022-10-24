@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Output from './components/Output';
 import Complexity from './components/Complexity';
@@ -9,7 +9,7 @@ import Charset from './components/Charset';
 function App() {
   
   const [length, setLength] = React.useState(0);
- 
+  const [screenSize, setScreenSize] = React.useState(window.innerWidth)
 
   const [checkbox, setCheckbox] = React.useState({
     lovercase: true,
@@ -18,7 +18,15 @@ function App() {
     symbols: true
   })
 
-function toggleCheckbox(event) {
+console.log(`The sreenSize state is: ${screenSize}`)
+
+function handleResize() {
+  setScreenSize(window.innerWidth)
+
+  return  _ => {window.removeEventListener('resize', handleResize)}
+}
+
+  function toggleCheckbox(event) {
     const {name, value, type, checked} = event.target
     setCheckbox(prev => {
         return {
@@ -99,12 +107,20 @@ function backgroundColorFeedback() {
   }
 }
 
+// React.useEffect(()=> {
+//   function handleResize() {
+//     setScreenSize(window.innerWidth)
+//   }
+// })
+
+window.addEventListener('resize', handleResize)
+
 
 return (
-  <div className='App' 
+  <div className='App'
        style={backgroundColorFeedback()}>
     <div className="app-wrapper">
-        <h2 className='title'>Generate secure password</h2>
+        <h2 className='title'>{+screenSize > 450 ? 'Generate secure password' : 'Password generator'}</h2>
         <Output generate={generate}
                 length={+length}
                 {...checkbox}

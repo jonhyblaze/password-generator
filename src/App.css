@@ -75,7 +75,6 @@ input {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  gap: 4rem;
 }
 
 .app-wrapper {
@@ -83,7 +82,7 @@ input {
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .output {
@@ -102,20 +101,40 @@ input {
   padding: .75rem 0 .75rem 1.5rem;
   background: #FFFFFF;
   border: 1px solid #282828;
-  box-shadow: 6px 6px 0px #000000;
+  /* box-shadow: 6px 6px 0px #000000; */
   width: 66%;
   height: 100%; 
 }
 
+.output--field:hover {
+  box-shadow: 4px 4px 0px #000000;
+  transition: .1s ease-in;
+}
+
 .output--copy {
   background-image: url(/src/assets/copy.png);
-  background-size: contain;
+  background-size: cover;
   width: 1.5rem;
   height: 1.5rem;
   color: #282828;
   margin-right: 1.5rem;
   cursor: pointer;
 }
+
+.output--copy:hover {
+  width: 1.7rem;
+  height: 1.7rem;
+  transition: .1s;
+  color: #94a3b8;
+}
+
+.output--copy:active {
+  width: 1.4rem;
+  height: 1.4rem;
+  transition: .1s;
+  color: #94a3b8;
+}
+
 
 .output--button {
   display: flex;
@@ -131,38 +150,67 @@ input {
   cursor: pointer;
 }
 
+.output--button:hover {
+  background: #383838;
+  box-shadow: 4px 4px 0px #000;
+  transition: .1s ease-in-out;
+}
+
+.output--button:active {
+  background: #000000;
+}
+
 .complexity {
   display: flex;
   flex-direction: column;
-  gap: .5rem
+  gap: .5rem;
+  width: 100%
 }
 
 .input {
   margin-top: 5rem;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   height: 2rem;
-  gap: 1.25rem;
+  width: 100%;
+}
+
+.input--label{
+  display: flex;
+  width: 40%;
+  gap: 1rem;
+  align-items: center;
 }
 
 .input--number {
   width: 7%;
   height: 100%;
   padding-left: .75rem;
+  width: 52px;
+  height: 33px;
 }
 
 .input--slider {
-  width: 60%
+  width: 59%
 }
 
 .charset {
   display: flex;
-  gap: 1.25rem;
+  gap: 4rem;
 }
 
 .charset--checkbox-container {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   gap: .25rem;
+}
+
+.charset--label {
+  gap:.25rem;
 }
 
 .checkbox {
@@ -171,6 +219,136 @@ input {
 }
 
 /* Password length background color feedback */
+
+/* Adaptive */
+
+@media screen and (max-width: 450px) {
+
+  h2{
+    font-size: 2rem;
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+    line-height: 1.45rem;
+  }
+  
+  p {
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+  }
+  
+  label {
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+  }
+  
+  input {
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+   }
+  
+   .app-wrapper {
+    padding-left: 1.25rem;
+    gap: .75rem;
+   }
+
+  .charset--label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: .85rem;
+    line-height: 1.2rem;
+  }
+
+  .output {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .25rem;
+    height: 3.75rem;
+    width: 100%;
+  }
+  .output--field {
+    height: 3.75rem;
+    width: 75%;
+  }
+
+  .output--button {
+    width: 66%;
+    height: 3.75rem;
+    width: 75%;
+  }
+
+  .complexity {
+    align-self: flex-start;
+    justify-self: flex-end;
+    margin-top: 5rem;
+    width: 75%;
+  }
+
+  .input {
+    flex-direction: column;
+    margin-top: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .input--label {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 75%;
+  }
+  
+.input--number {
+  width: 46px;
+  height: 30px;
+  /* padding-left: .8rem; */
+  font-size: .9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  
+}
+
+  .charset {
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+    margin-top: 7rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .charset--checkbox-container {
+    display: flex;
+    justify-self: flex-start;
+    align-self: flex-start;
+    gap: 1rem;
+  }
+
+  .charset--label{
+    gap:.25rem;
+  }
+  .checkbox {
+    margin-left: 0;
+  }
+}
 
 
 /* Crazy CSS rules */
@@ -184,7 +362,7 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
-  width: 61%;
+
 }
 input[type=range]:focus {
   outline: none;

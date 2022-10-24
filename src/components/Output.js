@@ -42,7 +42,6 @@ function handleCopyClick() {
     <div className="output">
         <div className="output--field">
           <h3>{password}</h3>
-          <div className="output--password"></div>
           <div className="output--copy"
                onClick={handleCopyClick }>
           </div>
