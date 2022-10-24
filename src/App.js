@@ -18,11 +18,9 @@ function App() {
     symbols: true
   })
 
-console.log(`The sreenSize state is: ${screenSize}`)
 
 function handleResize() {
   setScreenSize(window.innerWidth)
-
   return  () => {window.removeEventListener('resize', handleResize)}
 }
 
@@ -79,48 +77,83 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
       return generatedPassword.join('').slice(0, length)
 }
 
-function backgroundColorFeedback() {
-  if (length > 0 && length < 6) {
-    return {background: '#FF6E5A'}
-  } 
-  if (length >= 6 && length < 9) {
-    return {background: '#FFB054'}
-  }
-  if (length >= 9 && length < 13) {
-    return {background: '#FFDA55'}
-  }
-  if (length >= 13 && length < 16) {
-    return {background: '#BFF351'}
-  }
-  if (length >= 16 && length < 18) {
-    return {background: '#79F665'}
-  }
-  if (length >= 18 && length < 20) {
-    return {background: '#5EE0FD'}
-  }
-  if (length >= 20 && length < 22) {
-    return {background: '#77A5FF'}
-  }
+// function backgroundColorFeedback() {
+ 
+//   if(checkbox.lovercase || checkbox.uppercase || checkbox.numbers || checkbox.symbols) {
+ 
+//       if (length > 0 && length < 6) {
+//         return {background: '#FF6E5A'}
+//       } 
+//       if (length >= 6 && length < 9) {
+//         return {background: '#FFB054'}
+//       }
+//       if (length >= 9 && length < 13) {
+//         return {background: '#FFDA55'}
+//       }
+//       if (length >= 13 && length < 16) {
+//         return {background: '#BFF351'}
+//       }
+//       if (length >= 16 && length < 18) {
+//         return {background: '#79F665'}
+//       }
+//       if (length >= 18 && length < 20) {
+//         return {background: '#5EE0FD'}
+//       }
+//       if (length >= 20 && length < 22) {
+//         return {background: '#77A5FF'}
+//       }
 
-  if (length >= 22 && length < 25) {
-    return {background: '#9C8CFF'}
-  }
-}
-
-// React.useEffect(()=> {
-//   function handleResize() {
-//     setScreenSize(window.innerWidth)
-//   }
-// })
+//       if (length >= 22 && length < 25) {
+//         return {background: '#9C8CFF'}
+//       }
+//   } else {return {background: '#FF6E5A'}}
+// }
 
 window.addEventListener('resize', handleResize)
 
+React.useEffect( ()=>{
+    
+  if(checkbox.lovercase || checkbox.uppercase || checkbox.numbers || checkbox.symbols) {
+  
+  if (length < 1) {
+      document.body.style.background="#F6F6F6"
+    }
+    if (length > 1 && length < 6) {
+      document.body.style.background="#FF6E5A"
+    }
+    
+    if (length >= 6 && length < 9) {
+      document.body.style.background="#FFB054"
+    }
+
+    if (length >= 9 && length < 13) {
+      document.body.style.background="#FFDA55"
+    }
+
+    if (length >= 13 && length < 16) {
+      document.body.style.background="#BFF351"
+    }
+
+    if (length >= 16 && length < 18) {
+      document.body.style.background="#79F665"
+    }
+    if (length >= 18 && length < 20) {
+      document.body.style.background="#5EE0FD"
+    }
+    if (length >= 20 && length < 22) {
+      document.body.style.background="#77A5FF"
+    }
+    if (length >= 22 && length < 25) {
+      document.body.style.background="#9C8CFF"
+    }
+  }
+
+  }, [length, checkbox])
 
 return (
-  <div className='App'
-       style={backgroundColorFeedback()}>
+  <div className='App'>
     <div className="app-wrapper">
-        <h2 className='title'>{+screenSize > 450 ? 'Generate secure password' : 'Password generator'}</h2>
+        <h2 className='title'>{+screenSize > 770 ? 'Generate secure password' : 'Password generator'}</h2>
         <Output generate={generate}
                 length={+length}
                 {...checkbox}

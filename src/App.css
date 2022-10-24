@@ -228,18 +228,132 @@ input[type=checkbox] {
   height: 1.585rem;
 }
 
-/* Password length background color feedback */
+/* * Adaptive */
 
-/* Adaptive */
+@media screen and (max-width: 770px) {
+  h2 {
+    font-size: 2.75rem;
+    align-self: center;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  .app-wrapper {
+    padding-left: 1.25rem;
+    gap: 2rem;
+    margin-top: 5rem;
+    align-items: center;
+   }
+
+   .output {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+   }
+
+   .output--field {
+    min-height: 3rem;
+    width: 420px;
+    padding-left: 1rem;
+   }
+
+   .output--button {
+    min-height: 3rem;
+    width: 420px;
+    padding-left: 1rem;
+   }
+
+   .complexity {
+    margin-top: 5rem;
+    width: 420px;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .complexity--time {
+    height: 50px;
+  } 
+
+  .input {
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: flex-start;
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+    width: 420px;
+  }
+
+  .input--label {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 95%;
+  }
+  
+.input--number {
+  width: 48px;
+  height: 30px;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+.charset {
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: flex-start;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.charset--checkbox-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+  width: 420px;
+}
+
+.charset--label{
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.checkbox {
+  margin-left: 0;
+}
+
+input[type=checkbox] {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+}
+
 
 @media screen and (max-width: 500px) {
 
   /* * Typography */
 
   h2{
-    font-size: 2rem;
+    font-size: 2.25rem;
     align-self: flex-start;
-    justify-self: flex-start;
   }
 
 
@@ -271,13 +385,14 @@ input[type=checkbox] {
     font-size: 1.1rem;
     line-height: 1.2rem;
    }
-  
+
     /* * Components */
 
    .app-wrapper {
     padding-left: 1.25rem;
     gap: .75rem;
     margin-top: 3rem;
+    align-items: flex-start;
    }
 
   .charset--label{
@@ -293,7 +408,7 @@ input[type=checkbox] {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 1.5rem;
+    gap: 1.2rem;
     width: 100%;
   }
   .output--field {
@@ -359,7 +474,7 @@ input[type=checkbox] {
   input[type=range] {
     -webkit-appearance: none;
     margin: 10px 0;
-    width: 85%;
+    width: 92%;
   }
   
 .input--number {
@@ -370,10 +485,6 @@ input[type=checkbox] {
   font-size: 1rem;
   display: flex;
   align-items: center;
-}
-
-input[type=range] {
-  width: 92%;
 }
 
 
