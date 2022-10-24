@@ -73,7 +73,6 @@ input {
 .App {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100vh;
 }
 
@@ -83,6 +82,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: 100%;
 }
 
 .output {
@@ -126,7 +126,6 @@ input {
   width: 1.7rem;
   height: 1.7rem;
   transition: .1s;
-  color: #94a3b8;
 }
 
 .output--copy:active {
@@ -348,21 +347,24 @@ input[type=checkbox] {
 
 
 @media screen and (max-width: 500px) {
+  .app-wrapper, .App, body, #root {
+    overflow-x: hidden;
+  }
 
   /* * Typography */
 
   h2{
-    font-size: 2.25rem;
+    font-size: 2rem;
+    line-height: 2.75rem;
     align-self: flex-start;
   }
-
 
   h3 {
     font-size: 1.2rem;
   }
   
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     line-height: 1.45rem;
   }
   
@@ -387,128 +389,165 @@ input[type=checkbox] {
    }
 
     /* * Components */
+    
+/* ? App wrappers section */
 
    .app-wrapper {
-    padding-left: 1.25rem;
+    padding-left: 0rem;
     gap: .75rem;
+    margin: 0;
     margin-top: 3rem;
-    align-items: flex-start;
    }
 
-  .charset--label{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: .85rem;
-    line-height: 1.2rem;
-  }
+   .title {
+    width: 390px;
+    justify-self: center;
+    text-align: center;
+   }
+
+/* ? Output section */
 
   .output {
     margin-top: 1.875rem;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
-    gap: 1.2rem;
+    gap: .875rem;
     width: 100%;
   }
+
   .output--field {
     min-height: 3rem;
-    width: 95%;
+    width: 90%;
     padding-left: .85rem;
   }
-  .output--password {
-    font-size: 1.1rem;
+
+  .output--field:hover {
+    box-shadow: none;
+    transition: none;
   }
 
+  .output--password {
+    font-size: 1.25rem;
+  }
+  
   .output--copy {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1.3rem;
+    height: 1.3rem;
     margin-right: 0.95rem;
   }
-
+  
   .output--copy:hover {
     width: 1.3rem;
     height: 1.3rem;
+    transition: none;
   }
   .output--copy:active {
     width: 1rem;
     height: 1rem;
+    transition: none;
   }
-
 
   .output--button {
-    width: 66%;
     min-height: 3rem;
-    width: 95%;
+    width: 90%;
   }
 
-  .complexity {
+  .output--button:hover {
+    background: #383838;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .output--button:active {
+    background: #000000;
+    box-shadow: none;
+  }
+
+  /* ? Complexity section */
+  
+.complexity {
     margin-top: 5rem;
     width: 100%;
     gap: 1.25rem;
+    width: 100%;
+    align-items: center;
   }
-
+  
+  .complexity--rating {
+    text-align: left;
+    align-self: flex-start;
+    padding-left: 2.5rem;
+  }
   .complexity--time {
-    width: 340px;
+    text-align: left;
+    align-self: flex-start;
+    padding-left: 2.5rem;
+    width: 360px;
     height: 50px;
   }
 
+/* ? Inputs section */
 
   .input {
     flex-direction: column;
-    margin-top: 1rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 2.5rem;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
     gap: 1.5rem;
+
   }
 
   .input--label {
-    height: 2rem;
-    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
     gap: 1rem;
+    width: 100%;
+    height: 2rem;
+    padding-left: 2.5rem;
   }
 
   input[type=range] {
     -webkit-appearance: none;
     margin: 10px 0;
-    width: 92%;
+    width: 82%;
   }
   
 .input--number {
   width: 48px;
-  height: 30px;
+  height: 2rem;
   border-radius: 0px;
   border: 1px solid black;
   font-size: 1rem;
-  display: flex;
-  align-items: center;
+  align-self: flex-start;
+   
 }
 
+/* ? Characters set section */
 
   .charset {
     flex-direction: column;
-    justify-items: flex-start;
     align-items: flex-start;
-    margin-top: 4rem;
+    margin-top: 5rem;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: .75rem;
+    padding-left: 2.5rem;
   }
   .charset--checkbox-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 1.5rem;
-    gap: 1.5rem;
-    width: 59%;
+    gap: 2.5rem;
+    width: 66%;
   }
 
   .charset--label{
     display: flex;
     align-items: center;
-    gap: .3rem;
+    gap: .5rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 
   .checkbox {
@@ -519,9 +558,52 @@ input[type=checkbox] {
     width: 1.75rem;
     height: 1.75rem;
   }
-
 }
 
+
+@media screen and (max-width: 385px) {
+  
+  h2.title {
+    font-size: 1.65rem;
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.35rem;
+  }
+
+  .output--password {
+    font-size: 1rem;
+  }
+
+  .complexity--time {
+    width: 330px;
+  }
+
+  }
+
+  @media screen and (max-width: 340px) {
+  
+    h2.title {
+      font-size: 1.65rem;
+      text-align: left;
+      padding-left: 1.5rem;
+    }
+  
+    h4 {
+      font-size: 1.3rem;
+    }
+  
+    .output--password {
+      font-size: .95rem;
+    }
+  
+    .complexity--time {
+      width: 310px;
+    }
+  
+  }
 
 /* Crazy CSS rules */
 

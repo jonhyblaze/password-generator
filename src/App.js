@@ -10,7 +10,6 @@ function App() {
   
   const [length, setLength] = React.useState(0);
   const [screenSize, setScreenSize] = React.useState(window.innerWidth)
-
   const [checkbox, setCheckbox] = React.useState({
     lovercase: true,
     uppercase: true,
@@ -111,7 +110,7 @@ function generate(length, lovercase, uppercase, numbers, symbols) {
 
 window.addEventListener('resize', handleResize)
 
-React.useEffect( ()=>{
+useEffect( ()=>{
     
   if(checkbox.lovercase || checkbox.uppercase || checkbox.numbers || checkbox.symbols) {
   
@@ -146,7 +145,7 @@ React.useEffect( ()=>{
     if (length >= 22 && length < 25) {
       document.body.style.background="#9C8CFF"
     }
-  }
+  } else  document.body.style.background="#F6F6F6"
 
   }, [length, checkbox])
 
