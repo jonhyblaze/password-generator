@@ -15,6 +15,7 @@ export default function Input (props) {
                name="number"
                onChange={props.handleChange}
                value={props.length}
+               readOnly={true}
                />
         </label>
         <input type="range" 
