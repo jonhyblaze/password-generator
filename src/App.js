@@ -23,7 +23,7 @@ console.log(`The sreenSize state is: ${screenSize}`)
 function handleResize() {
   setScreenSize(window.innerWidth)
 
-  return  _ => {window.removeEventListener('resize', handleResize)}
+  return  () => {window.removeEventListener('resize', handleResize)}
 }
 
   function toggleCheckbox(event) {

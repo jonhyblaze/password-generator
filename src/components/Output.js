@@ -41,10 +41,10 @@ function handleCopyClick() {
   return (
     <div className="output">
         <div className="output--field">
-          <h3>{password}</h3>
-          <div className="output--copy"
-               onClick={handleCopyClick }>
-          </div>
+            <h3 className="output--password">{password}</h3>
+            <div className="output--copy"
+                onClick={handleCopyClick }>
+            </div>
         </div>
         <div className="output--button" onClick={handlePassword}><h4>Generate</h4></div>
     </div>
